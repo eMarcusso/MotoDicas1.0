@@ -8,5 +8,5 @@ nome varchar (80),
 email varchar (65),
 senha varchar (45),
 confirmar_senha varchar (45),
-marca varchar (15)
+combo varchar (15)
 );
