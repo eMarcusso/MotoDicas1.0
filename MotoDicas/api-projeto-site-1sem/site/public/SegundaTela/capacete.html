@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 2</title>
+    <!-- boxicons CDN Link -->
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./capacete.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <div class="alinha">
+                        <p class="logo_name">Moto</p> <br>
+                        <p class="dicas">Dicas</p>
+                    </div>
+                    <img src="../imagens/logos/logo-tipo (3).png" alt="">
+                </div>
+                <i class='bx bx-menu' id="btn"></i>
+            </div>
+            <ul class="nav_list">
+                <!-- <li>
+                    <a href="#">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search...">
+                    </a>
+                    <span class="tooltip">Search</span>
+                </li> -->
+                <li>
+                    <a href="./index2.html">
+                        <i class='bx bx-pie-chart-alt-2'></i>
+                        <span class="links_name">Ranking</span>
+                    </a>
+                    <span class="tooltip">Ranking</span>
+                </li>
+                <li>
+                    <a href="./dicas.moto.html">
+                        <i class='bx bx-clipboard'></i>
+                        <span class="links_name">Dicas de Moto</span>
+                    </a>
+                    <span class="tooltip">Dicas de moto</span>
+                </li>
+                <li>
+                    <a href="./dicas-de-motoboy.html">
+                        <i class='bx bx-clipboard'></i>
+                        <span class="links_name">Dicas de Motoboy</span>
+                    </a>
+                    <span class="tooltip">Dicas Motoboy <span>
+                </li>
+                <li>
+                    <a href="./capacete.html">
+                        <i class='bx bx-checkbox-checked'></i>
+                        <span class="links_name">Capacetes</span>
+                    </a>
+                    <span class="tooltip">Capacetes</span>
+                </li>
+                <li>
+                    <a href="./saiba.mais.html">
+                        <i class='bx bxs-analyse'></i>
+                        <span class="links_name">Saiba Mais </span>
+                    </a>
+                    <span class="tooltip">Saiba Mais</span>
+                </li>
+            </ul>
+
+            <div class="profile_content">
+                <div class="profile">
+                    <div class="profile_details">
+                        <img src="../imagens/tela2(sair).png" alt="">
+                        <div class="name_job">
+                            <div class="name">Usuário</div>
+                            <div class="job">Motoca</div>
+                        </div>
+                    </div>
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-tudo">
+            <div class="container">
+
+                <div class="card card0">
+                    <div class="border">
+                        <h2>CAPACETE</h2>
+                        <div class="texto">
+                            <span class="g">MODELO</span>
+                            <span class="g">Norisk</span>
+                            <span class="g">Razor</span>
+                            <span class="g">R$500 a 600</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card1">
+                    <div class="border">
+                        <h2>CAPACETE</h2>
+                        <div class="texto">
+                            <span class="g">MODELO</span>
+                            <span class="g">LS2</span>
+                            <span class="g">Ff358</span>
+                            <span class="g">R$650 a 730</span>
+                        </div>
+                    </div>
+                </div>
+             
+                
+                <div class="card card2">
+                    <div class="border">
+                        <h2>CAPACETE</h2>
+                        <div class="texto">
+                            <span class="g">MODELO</span>
+                            <span class="g">Axxis</span>
+                            <span class="g">Draken Solid</span>
+                            <span class="g">R$599 a 650</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="card card3">
+                    <div class="border">
+                        <h2>CAPACETE</h2>
+                        <div class="texto">
+                            <span class="g">MODELO</span>
+                            <span class="g">San Marino</span>
+                            <span class="g">classic</span>
+                            <span class="g">R$100 a 180</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+</body>
+
+</html>
+<script>
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+    let searchBtn = document.querySelector("bx-search");
+
+    btn.onclick = function () {
+        sidebar.classList.toggle("active");
+
+    }
+
+    searchBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+
+    }
+</script>

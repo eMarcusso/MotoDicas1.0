@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 2</title>
+    <!-- boxicons CDN Link -->
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./index2.css">
+    <link rel="stylesheet" href="./saiba.mais.css">
+
+</head>
+
+<body style="background-color:#9b9b9b ;">
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <div class="alinha">
+                    <p class="logo_name">Moto</p> <br>
+                    <p class="dicas">Dicas</p>
+                </div>
+                <img src="../imagens/logos/logo-tipo (3).png" alt="">
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+            <!-- <li>
+                <a href="#">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search...">
+                </a>
+                <span class="tooltip">Search</span>
+            </li> -->
+            <li>
+                <a href="./index2.html">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Ranking</span>
+                </a>
+                <span class="tooltip">Ranking</span>
+            </li>
+            <li>
+                <a href="./dicas.moto.html">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="links_name">Dicas de Moto</span>
+                </a>
+                <span class="tooltip">Dicas de moto</span>
+            </li>
+            <li>
+                <a href="./dicas-de-motoboy.html">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="links_name">Dicas de Motoboy</span>
+                </a>
+                <span class="tooltip">Dicas Motoboy <span>
+            </li>
+            <li>
+                <a href="./capacete.html">
+                    <i class='bx bx-checkbox-checked'></i>
+                    <span class="links_name">Capacetes</span>
+                </a>
+                <span class="tooltip">Capacetes</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-analyse'></i>
+                    <span class="links_name">Saiba Mais </span>
+                </a>
+                <span class="tooltip">Saiba Mais</span>
+            </li>
+        </ul>
+
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="../imagens/tela2(sair).png" alt="">
+                    <div class="name_job">
+                        <div class="name">Usuário</div>
+                        <div class="job">Motoca</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-d">
+        <div class="dicas_pai">
+            <div class="titulo_dicas">
+                <h2 class="titulo">SAIBA MAIS</h2>
+            </div>
+            <br>
+            <div class="dicas-tudo">
+                <li>
+                    Bom, descobri minha paixão por motos aos 10 anos, quando meu irmão comprou uma moto, 
+                    ybr 125 da Yamaha da cor vermelha, então foi inevitável ele me ensinar a andar.
+                    Chegava sábado era nos dois na rua lavando a moto e ali eu aprendi o que é a dar 
+                    valor nas suas pequenas conquistas. Depois de um ano meu irmão vendeu a moto e se 
+                    casou, porém, a moto foi vendida para um amigo e esse meu amigo trabalhava entregando 
+                    pizza, então aproveitei e comecei a trabalhar com ele na garupa entregando pizza e ali 
+                    eu aprendi como a rua era perigosa e é preciso ter uma certa malicia quando se está no 
+                    piloto. <br>
+                    Depois de muitos anos meu irmão conquistou uma moto, e não era qualquer uma, era umas
+                    800 Tiger Triumph, moto linda, não tinha um que não olhava e novamente mais um aprendizado,
+                    seja determinado e tenha foco nos seus objetivos. Então pequei tudo o que eu aprendi e 
+                    coloquei em prática e comecei a trabalhar e com foco, consegui comprar minha primeira moto 
+                    e vocês lembram da moto do meu irmão?! Então, foi justamente ela que eu comprei, montei 
+                    ela do zero, peguei e comprei peça por peça, de mês em mês, depois disso comecei a trabalhar.
+                    Comecei entregando bebida em aplicativo, trabalhava das 11h manhã e voltava pra casa as 2h 
+                    da madrugada, essa rotina se manteve por 6 meses e eu adorava isso, depois disso vendi a 
+                    moto e entrei na faculdade. Acho que com esses meses trabalhados eu tenho propriedade de dar
+                    dicas a vocês.  
+                </li>
+
+                <!-- <div class="div_img">
+                    <img src="saibamais.jpg" alt="">
+                </div>  -->
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+    let searchBtn = document.querySelector("bx-search");
+
+    btn.onclick = function () {
+        sidebar.classList.toggle("active");
+
+    }
+
+    searchBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+
+    }
+</script>

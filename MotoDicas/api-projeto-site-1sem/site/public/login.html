@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="js/funcoes.js"></script>
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+    <html lang="pt">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/Projeto-Pessoal/MotoDicas/css/login.css">
+
+
+        <title>Moto Dicas</title>
+    </head>
+
+<body style="background-color: black;">
+
+    <header>
+            <main id="Inicio" class="inicio">
+
+                <div class="navbar" id="nav">
+
+                    <ul>
+
+                        <li> <a href="./index.html">Inicio<br>
+                                <div class="barra"></div>
+                            </a> </li>
+                        <li> <a href="./projeto.html">Projeto<br>
+                                <div class="barra"></div>
+                            </a> </li>
+                        <li> <a> | </a> </li>
+                        <li> <a href="./Login.html">Login<br>
+                                <div class="barra"></div>
+                            </a></li>
+                        <li><a href="./cadastro.html">cadastre-se<br>
+                                <div class="barra"></div>
+                            </a></li>
+
+                        <a><img class="img-logo"
+                                src="./imagens/logos/logo-tipo (3).png"><img></a>
+                        <div class="text-logo"> Moto </div>
+                        <div class="text-logo2">Dicas</div>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="cadastro-form ">
+                    <span class="cadastro-form-title">
+                        Ola! Faça seu Login
+                    </span>
+
+                    <br>
+                    <div class="input-email " data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input1" type="text" name="email" placeholder="Email" id="email_input">
+                        <span class="sombra-input1"></span>
+                    </div>
+                    <br>
+                    <div class="input-senha ">
+                        <input class="input1" type="password" name="senha" placeholder="Senha" id="senha_input">
+                        <span class="sombra-input1"></span>
+                    </div>
+                    <br>
+                    <div class="container-cadastro-form-btn">
+                        <button class="cadastro-form-btn" onclick="entrar()">Entrar</button>
+                    </div>
+                </div>
+
+                <div id="cardErro" style="display: none;">
+                    <div id="mensagem_erro"></div>
+                </div>
+
+            </main>
+    </header>
+
+
+    <div id="div_aguardar"></div>
+
+</body>
+
+</html>
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Confira se os campos estão devidamente preenchido";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./SegundaTela/index2.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

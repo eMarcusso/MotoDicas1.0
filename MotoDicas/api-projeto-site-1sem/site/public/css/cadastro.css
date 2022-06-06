@@ -1,0 +1,256 @@
+
+ body {
+	font-family: Century Gothic;
+	box-sizing: border-box;
+	margin: 0px;
+	}
+
+/* home e navbar */
+
+header {
+  margin-top: 15px;
+	width: 100%;
+	background-image: url(banner-do-cadastro2.jpg);
+	background-size: cover;
+}
+
+.inicio {
+	display: flex;
+	align-items: center;
+	height: 95vh;
+	color: white;
+}
+
+.Slogan-topo {
+	margin-top: -10px;
+	font-family: "Century Gothic", sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	margin-left: 8%;
+}
+
+.btn-Qro-Conhecer {
+	font-family: "Century Gothic", sans-serif;
+	width: 20%;
+	text-align: center;
+	display: block;
+	margin-top: 30px;
+	outline: none;
+	color: #ffffff;
+	background: #000000;
+	padding: 10px 20px;
+	border-radius: 10px;
+	transition: 0.8s ease;
+	margin-left: 8%;
+}
+
+.Text-Topo {
+	margin-left: 8%;
+	font-family: "Century Gothic", sans-serif;
+	font-size: 23px;
+	font-weight: bold;
+}
+
+.navbar {
+	margin: 0px;
+	height: 14%;
+	width: 100%;
+	padding: 1%;
+	padding-right: 70px;
+	position: fixed;
+	top: 0%;
+	text-align: right;
+	transition: 0.5s;
+	background: rgb(44, 42, 42);
+}
+
+.navbar ul li {
+	margin-right: 5px;
+	display: inline-block;
+	padding: 1% 18px;
+	font-size: 20px;
+	font-family: 'Work Sans', sans-serif;
+	margin-right: 7%
+}
+
+.navbar ul img {
+	margin-top: -120px;
+}
+
+.img-logo {
+	font-family: "Century Gothic", sans-serif;
+	width: 16%;
+	text-align: center;
+	display: block;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 10px;
+	transition: 0.8s ease;
+	margin-left: 0%;
+}
+
+.text-logo{
+	font-family: "Century Gothic", sans-serif;
+	font-size: 25px;
+	width: 16%;
+	text-align: center;
+	display: block;
+	outline: none;
+	padding: 10px 20px;
+	margin-top: -13.5%;
+	border-radius: 10px;
+	transition: 0.8s ease;
+	margin-left: -85px;
+}
+
+.text-logo2{
+	font-family: "Century Gothic", sans-serif;
+	font-size: 25px;
+
+	margin-top: -15px;
+
+	margin-right: 93%;
+}
+
+
+.barra {
+	background-color: #e22b2b;
+	width: 0%;
+	height: 2px;
+	-webkit-transition: width 0.8s;
+	transition: width 0.8s;
+}
+
+a:hover .barra {
+	background-color: #e22b2b;
+	width: 100%;
+	height: 2px;
+	-webkit-transition: width 0.8s;
+	transition: width 0.8s;
+}
+
+a {
+	list-style-type: none;
+	text-decoration: none;
+	font-weight: 500;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	transition: color 0.1s;
+}
+
+
+.cadastro-form{
+ 
+  width: 30%;
+  height: 40%;
+  margin-left: 30px;
+}
+
+.cadastro-form-title {
+  margin-top: -30px;
+  display: block;
+  font-family: Montserrat-ExtraBold;
+  font-size: 24px;
+  color: #fffdfd;
+  line-height: 1.2;
+  padding-bottom: 20px;
+  margin-left: 12%;
+  cursor: pointer;
+}
+
+
+input.input1 {
+  margin-top: -10px;
+  height: 1px;
+  width: 70%;
+  border-radius: 25px;
+  padding: 30px;
+  margin-left: 30px;
+}
+.input1 {
+  display: block;
+  background: #ffffff;
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+}
+input {
+  outline: none;
+  border: none;
+}
+
+.cadastro-form-btn {
+  min-width: 192px;
+  height: 40px;
+  border-radius: 25px;
+  background: rgb(0, 0, 0);
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 25px;
+  margin-left: 25%;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.container-cadastro-form-btn :hover{
+	background-color: #666666;
+}
+
+/* .cardErro{
+
+	
+
+} */
+
+.mensagem_erro{
+
+	color: #fff;
+	background-color: #000000;
+	font-size: 25px;
+}
+
+
+
+.div-select-bx{
+
+	font-family: Montserrat-Bold;
+
+}
+
+.select-bx{
+	margin-top: -10px;
+	margin-left: 30px;
+	height: 60px;
+	width: 84%;
+	border-radius: 25px;
+	
+}
+
+/* .select-bx{
+
+
+	display: block;
+    background: #ffffff;
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+	margin-top: -10px;
+    height: 1px;
+    width: 84%;
+    border-radius: 25px;
+    padding: 30px;
+    margin-left: 30px
+
+} */
+
+/* <div id="cardErro" style="display: block;">
+		<div id="mensagem_erro"></div>
+	</div> */

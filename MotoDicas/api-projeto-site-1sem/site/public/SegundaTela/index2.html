@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 2</title>
+    <!-- boxicons CDN Link -->
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./index2.css">
+    <link rel="stylesheet" href="./ranking.css">
+
+</head>
+
+<body style="background-color:#9b9b9b;">
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <div class="alinha">
+                    <p class="logo_name">Moto</p> <br>
+                    <p class="dicas">Dicas</p>
+                </div>
+                <img src="../imagens/logos/logo-tipo (3).png" alt="">
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+            <!-- <li>
+                <a href="#">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search...">
+                </a>
+                <span class="tooltip">Search</span>
+            </li> -->
+            <li>
+                <a href="./index2.html">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Ranking</span>
+                </a>
+                <span class="tooltip">Ranking</span>
+            </li>
+            <li>
+                <a href="./dicas.moto.html">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="links_name">Dicas de Moto</span>
+                </a>
+                <span class="tooltip">Dicas de moto</span>
+            </li>
+            <li>
+                <a href="./dicas-de-motoboy.html">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="links_name">Dicas de Motoboy</span>
+                </a>
+                <span class="tooltip">Dicas Motoboy <span>
+            </li>
+            <li>
+                <a href="./capacete.html">
+                    <i class='bx bx-checkbox-checked'></i>
+                    <span class="links_name">Capacetes</span>
+                </a>
+                <span class="tooltip">Capacetes</span>
+            </li>
+            <li>
+                <a href="./saiba.mais.html">
+                    <i class='bx bxs-analyse'></i>
+                    <span class="links_name">Saiba Mais </span>
+                </a>
+                <span class="tooltip">Saiba Mais</span>
+            </li>
+        </ul>
+
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="../imagens/tela2(sair).png" alt="">
+                    <div class="name_job">
+                        <div class="name">Usuário</div>
+                        <div class="job">Motoca</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <header>
+        <div class="container">
+            <div class="ranking">
+                <div class="titulo">
+                    <p>Ranking de marcas preferidas dos usuarios</p>
+                </div>
+                <div class="contador">
+                    <p>Posição
+                    <p>
+                </div>
+                <div class="marca">
+                    <p>Marca</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-btn">
+
+            <button class="btn" onclick="cadastrar_marca()">Participar do Rankin</button>
+
+        </div>
+
+    </header>
+
+    <script>
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        let searchBtn = document.querySelector("bx-search");
+
+        btn.onclick = function () {
+            sidebar.classList.toggle("active");
+
+        }
+
+        searchBtn.onclick = function () {
+            sidebar.classList.toggle("active");
+
+        }
+    </script>
+
+
+</body>
+
+</html>
+
+<script>
+    function funcHonda() {
+        fetch("/usuarios/funcHonda").then(function (resposta) {
+            console.log("ESTOU NO THEN DO funcHonda()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+
+                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(realista.Realistabd);
+                    sessionStorage.REALISTA = realista.Realistabd;
+
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function funcYamaha() {
+        fetch("/usuarios/funcYamaha").then(function (resposta) {
+            console.log("ESTOU NO THEN DO funcYamaha()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+
+                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(realista.Realistabd);
+                    sessionStorage.YAMAHA = yamaha.yamahabd;
+
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function funcSusuki() {
+        fetch("/usuarios/funcSusuki").then(function (resposta) {
+            console.log("ESTOU NO THEN DO funcSusuki()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+
+                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(realista.Realistabd);
+                    sessionStorage.REALISTA = realista.Realistabd;
+
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+
+    function funcBmw() {
+        fetch("/usuarios/funcBmw").then(function (resposta) {
+            console.log("ESTOU NO THEN DO funcBmw()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+
+                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(realista.Realistabd);
+                    sessionStorage.REALISTA = realista.Realistabd;
+
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function funcTriumph() {
+        fetch("/usuarios/funcTriumph").then(function (resposta) {
+            console.log("ESTOU NO THEN DO funcTriumph()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+
+                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(realista.Realistabd);
+                    sessionStorage.REALISTA = realista.Realistabd;
+
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+
+
+</script>
