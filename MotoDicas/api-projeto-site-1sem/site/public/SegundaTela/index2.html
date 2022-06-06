@@ -10,7 +10,6 @@
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./index2.css">
-    <link rel="stylesheet" href="./ranking.css">
 
 </head>
 
@@ -27,13 +26,6 @@
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav_list">
-            <!-- <li>
-                <a href="#">
-                    <i class='bx bx-search'></i>
-                    <input type="text" placeholder="Search...">
-                </a>
-                <span class="tooltip">Search</span>
-            </li> -->
             <li>
                 <a href="./index2.html">
                     <i class='bx bx-pie-chart-alt-2'></i>
@@ -86,30 +78,78 @@
     </div>
 
 
-    <header>
-        <div class="container">
-            <div class="ranking">
-                <div class="titulo">
-                    <p>Ranking de marcas preferidas dos usuarios</p>
-                </div>
-                <div class="contador">
-                    <p>Posição
-                    <p>
+   
+    <!-- <div class="container">
+        <div class="ranking">
+            <div class="titulo">
+                <p>Ranking de marcas preferidas dos usuarios</p>
+            </div>
+            <div class="contador">
+                <div class="position">
+                    <p>Posição<p> 
                 </div>
                 <div class="marca">
                     <p>Marca</p>
+                    <p>Honda</p>
                 </div>
-
             </div>
+
+            <div class="contador">
+                <div class="position">
+                    <p>Posição<p> 
+                </div>
+                <div class="marca">
+                    <p>Marca</p>
+                    <p>Yamaha</p>
+                </div>
+            </div>
+
+            <div class="contador">
+                <div class="position">
+                    <p>Posição<p> 
+                </div>
+                <div class="marca">
+                    <p>Marca</p>
+                    <p>Susuki</p>
+                </div>
+            </div>
+
+            <div class="contador">
+                <div class="position">
+                    <p>Posição<p> 
+                </div>
+                <div class="marca">
+                    <p>Marca</p>
+                    <p>Bmw</p>
+                </div>
+            </div>
+
+
+            <div class="contador">
+                <div class="position">
+                    <p>Posição<p> 
+                </div>
+                <div class="marca">
+                    <p>Marca</p>
+                    <p>Triumph</p>
+                </div>
+            </div>
+
         </div>
+    </div> -->
 
-        <div class="container-btn">
+    <div class="graph">
+        <span><h1>Times favoritos dos usuarios</h1></span>
+        <div>
+            <canvas id="visitados"></canvas>
+          </div>
+        
+    </div>  
 
-            <button class="btn" onclick="cadastrar_marca()">Participar do Rankin</button>
+    
 
-        </div>
 
-    </header>
+
 
     <script>
         let btn = document.querySelector("#btn");
@@ -133,6 +173,11 @@
 </html>
 
 <script>
+
+    var conta
+
+
+
     function funcHonda() {
         fetch("/usuarios/funcHonda").then(function (resposta) {
             console.log("ESTOU NO THEN DO funcHonda()!")
@@ -140,9 +185,9 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
-                    console.log(realista.Realistabd);
-                    sessionStorage.REALISTA = realista.Realistabd;
+                    honda = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(honda.Hondabd);
+                    sessionStorage.REALISTA = honda.Hondabd;
 
                 });
             } else {
@@ -161,8 +206,8 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
-                    console.log(realista.Realistabd);
+                    yamaha = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(susuki.Susukibd);
                     sessionStorage.YAMAHA = yamaha.yamahabd;
 
                 });
@@ -182,9 +227,9 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
-                    console.log(realista.Realistabd);
-                    sessionStorage.REALISTA = realista.Realistabd;
+                    susuki = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(susuki.Susukibd);
+                    sessionStorage.SUSUKI = susuki.Susukibd;
 
                 });
             } else {
@@ -204,8 +249,8 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
-                    console.log(realista.Realistabd);
+                    bmw = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(bmw.Realistabd);
                     sessionStorage.REALISTA = realista.Realistabd;
 
                 });
@@ -238,6 +283,65 @@
         })
         return false;
     }
+
+    var marca_vt = []
+        fetch("/analytics/analytics")
+        .then(function (res) {
+        console.log(res)
+        res.json().then(function (json) {
+            console.log(json);
+            var likes = []
+            for (let index = 0; index < json.length; index++) {
+                marca_vt.push(json[index].Votos);
+                
+                // votos.push(json[index].likes)
+            }
+
+            console.log(marca_vt);
+
+            // Inicia uma variável do tipo constante (não pode ser reatribuida)
+            const visitados = {
+                type: "bar", // tipo do gráfico
+                data: { // objeto que vai conter os dados do gráfico
+                    labels: ['Honda',
+      'Yamaha',
+      'Susuki',
+      'Bmw',
+      'Triumph'], // labels (rótulos) que serão identificados os nossos dados 
+                    datasets: [ // datasets (conjunto de dados)
+                        {
+                            label: "Times favoritos dos usuários!", // irá conter o rótulo principal do nosso gráfico
+                            data: marca_vt, // os dados referentes aqueles rótulos
+                            backgroundColor: ['rgb(255, 99, 132)','rgb(255, 255, 0)','rgb(0,0,139)','rgb(65,105,225)','rgb(0,0,0)'], // cor das "bolinhas" do gráfico
+                            borderColor: "black", // cor da "linha" do gráfico
+                            hoverBackgroundColor: "rgb(115, 59, 48)",
+                            fontWeight: "bold"
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false
+                    /* maintainAspectRatio (manter relação de aspecto) 
+                      caso true: ele "obdece" a altura e largura que colocamos
+                      caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+                    */
+                }
+            }
+
+            var mais_visitados = new Chart(document.getElementById ("marca_vt"),visitados);
+            /* aqui obrigatoriamente tem que colocar new Chart() para criar um novo chart 
+            e passar dentro dos (parênteses) o elemento canvas que você quer mandar e 
+            separado pela virgula o que você quer mandar, no nosso caso a config que fizemos 
+            */
+
+
+
+
+
+        })
+    }).catch(function (erro) {
+        console.log(erro);
+    })
 
 
 

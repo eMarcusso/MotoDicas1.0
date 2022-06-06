@@ -126,21 +126,24 @@
             mensagem_erro.innerHTML = "Informe os dados paro proseguir com o cadastro";
         
 
-        // if (nomeVar == "") {
-        //     mensagem_erro.innerHTML = "Nome está em branco"
-        // }
-        // if (emailVar == "") {
-        //     mensagem_erro.innerHTML = "email está em branco"
-        // }
-        // if (senhaVar == "") {
-        //     mensagem_erro.innerHTML = "senha está em branco"
-        // }
+        if (nomeVar == "") {
+            mensagem_erro.innerHTML = "Nome está em branco"
+        }else
+        if (emailVar == "") {
+            mensagem_erro.innerHTML = "Email está em branco"
+        }else
+        if (senhaVar == "") {
+            mensagem_erro.innerHTML = "Senha está em branco"
+        }else
+        if (senhaVar != confirmarSenhaVar) {
+            mensagem_erro.innerHTML = "A senha não confere"
+        }
 
         finalizarAguardar();
         return false;
     }
 
-    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf("email") == -1 ||emailVar.indexOf(".com") == -1 ) {
         window.alert("E-mail inválido! Verifique e tente novamente.");
         finalizarAguardar();
         return false;
@@ -168,6 +171,7 @@
             nomeServer: nomeVar,
             emailServer: emailVar,
             senhaServer: senhaVar,
+            confirmarServer: confirmarSenhaVar,
             comboServer: comboVar,
         })
     }).then(function (resposta) {

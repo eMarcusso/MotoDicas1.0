@@ -332,20 +332,27 @@ header{
 
 }
 
+
 /* ranking */
 
-.container{
 
+/* .container{
     background-color:  #1d1b31;
     width: 50%;
-    height: 1050%;
-    position: absolute;
+    height: 580px;
     margin-left: 24%;
-    margin-top: -35%;
-    display: flex;
-    border-radius: 6px;
-    
+    margin-top: 2%;
+    border-radius: 10px;
 }
+
+.ranking{
+    background-color:  #1d1b31b9;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 90%;
+    width: 95%;
+}
+
 
 .ranking{
     
@@ -356,72 +363,57 @@ header{
     border-radius: 8px;
     background-color:  #1d1b31b9;
     float: left;
+    
 }
-
 
 .titulo{
     font-size: 25px;
-    width: 100%;   
+    width: 100%;
     margin-left: 10%;
+    margin-top: -10px;
     color: #fff;
+    border-radius: 16px;
 }
 
+
 .contador{
-    background-color: #11101d;
+    background-color: #fff;
     margin-top: 7%;
     margin-left: 10%;
-    width: 25%;
-    height: 70%;
-    border-radius: 15px;
+    width: 80%;
+    height: 11%;
+    border-radius: 3px;
 }
 
 .contador p {
-    color: #fff;
-    font-size: 17px;
-    margin-left: 40px; 
-}
-
-.marca {
-
-    margin-left: 60%;
-    margin-top: -42%;
-    background-color:  #11101d;
-    width: 25%;
-    height: 70%;
-    border-radius: 15px
-}
-
-.marca p{
-    color: #fff;
-    font-size: 17px;
-    margin-left: 40px; 
-}
-
-/* botão */
-
-.container-btn{
-
-    
-    width: 12%;
-    margin-left: 60%;
-    margin-top: 40%;
-}
-
-.btn{
-
-    width: 120%;
-    height: 40px;
-    border-radius: 12px;
-    color: #fff;
-    background-color: #1d1b31fd;
-    cursor: pointer;
-    transition: all 1s ease;
-
-}
-
-.btn:hover{
-    transition: all 1s ease;
+    color:#11101d;
     background-color: #fff;
-    color: #1d1b31;
+    font-size: 17px;
+    margin-left: 40px; 
+}
 
+
+
+.marca{
+    margin-top: -25px;
+    margin-left: 58%;
+    flex-direction: column;
+} */
+
+/* grafico */
+
+.graph{
+    background-color:  #1d1b31;
+    display: inline-block;
+    width: 50%;
+    height: auto;
+    padding: 30px;
+    margin-left: 420px;
+    margin-top: 10%;
+}
+
+.graph h1{
+    color: #fff;
+    margin-left: 19%;
+    font-family: Arial, Helvetica, sans-serif;
 }
