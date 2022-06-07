@@ -72,14 +72,14 @@
                         <div class="job">Motoca</div>
                     </div>
                 </div>
-                <i class='bx bx-log-out' id="log_out"></i>
+                <a href="../login.html"><i class='bx bx-log-out' id="log_out"></i></a>
             </div>
         </div>
     </div>
 
 
    
-    <!-- <div class="container">
+    <div class="container">
         <div class="ranking">
             <div class="titulo">
                 <p>Ranking de marcas preferidas dos usuarios</p>
@@ -87,71 +87,70 @@
             <div class="contador">
                 <div class="position">
                     <p>Posição<p> 
+                    <p id="posicao_honda"></p>
                 </div>
                 <div class="marca">
                     <p>Marca</p>
-                    <p>Honda</p>
+                    <p id="p_honda" ></p>
+                </div>
+            </div>
+
+            <div class="contador">
+                <div class="position">
+                    <p>Posição<p>
+                    <p id="posicao_yamaha"></p>
+                </div>
+                <div class="marca">
+                    <p>Marca</p>
+                    <p id="p_yamaha"></p>
                 </div>
             </div>
 
             <div class="contador">
                 <div class="position">
                     <p>Posição<p> 
+                    <p id="posicao_susuki"></p>
                 </div>
                 <div class="marca">
                     <p>Marca</p>
-                    <p>Yamaha</p>
+                    <p id="p_susuki" ></p>
                 </div>
             </div>
 
             <div class="contador">
                 <div class="position">
                     <p>Posição<p> 
+                    <p id="posicao_bmw"></p>
                 </div>
                 <div class="marca">
                     <p>Marca</p>
-                    <p>Susuki</p>
-                </div>
-            </div>
-
-            <div class="contador">
-                <div class="position">
-                    <p>Posição<p> 
-                </div>
-                <div class="marca">
-                    <p>Marca</p>
-                    <p>Bmw</p>
+                    <p id="p_bmw" ></p>
                 </div>
             </div>
 
 
             <div class="contador">
                 <div class="position">
-                    <p>Posição<p> 
+                    <p>Posição<p>
+                    <p id="posicao_triumph"></p>
                 </div>
                 <div class="marca">
                     <p>Marca</p>
-                    <p>Triumph</p>
+                    <p id="p_triumph"></p>
                 </div>
             </div>
 
         </div>
-    </div> -->
-
-    <div class="graph">
-        <span><h1>Times favoritos dos usuarios</h1></span>
-        <div>
-            <canvas id="visitados"></canvas>
-          </div>
-        
-    </div>  
-
-    
+    </div>
 
 
 
+</body>
 
-    <script>
+</html>
+
+<script>
+
         let btn = document.querySelector("#btn");
         let sidebar = document.querySelector(".sidebar");
         let searchBtn = document.querySelector("bx-search");
@@ -161,20 +160,48 @@
 
         }
 
-        searchBtn.onclick = function () {
-            sidebar.classList.toggle("active");
 
+
+        function trazerPosi() {
+            fetch("/usuarios/position").then(function(resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function(resposta) {
+                        
+                        console.log(resposta);
+
+                        for (let index = 0; index < resposta.length; index++) {
+
+                            if (resposta[index].marca == 'Honda') {
+                                p_honda.innerHTML = resposta[index].marca;
+                                posicao_honda.innerHTML = resposta[index].usuario;  
+
+                            }else if (resposta[index].marca == 'Yamaha') {
+                                p_yamaha.innerHTML = resposta[index].marca;
+                                posicao_yamaha.innerHTML = resposta[index].usuario;
+
+                            }else if (resposta[index].marca == 'Susuki') {
+                                p_susuki.innerHTML = resposta[index].marca;
+                                posicao_susuki.innerHTML = resposta[index].usuario;
+
+                            }else if (resposta[index].marca == 'Bmw') {
+                                p_bmw.innerHTML = resposta[index].marca;
+                                posicao_bmw.innerHTML = resposta[index].usuario;
+
+                            }else{
+                                p_triumph.innerHTML = resposta[index].marca;
+                                posicao_triumph.innerHTML = resposta[index].usuario;
+                            }
+                        }
+                        
+                    })
+                }
+            })
         }
-    </script>
 
+        window.onload = function() {
+            trazerPosi();
+        }
 
-</body>
-
-</html>
-
-<script>
-
-    var conta
 
 
 
@@ -187,7 +214,7 @@
 
                     honda = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
                     console.log(honda.Hondabd);
-                    sessionStorage.REALISTA = honda.Hondabd;
+                    sessionStorage.HONDA = honda.Hondabd;
 
                 });
             } else {
@@ -208,7 +235,7 @@
 
                     yamaha = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
                     console.log(susuki.Susukibd);
-                    sessionStorage.YAMAHA = yamaha.yamahabd;
+                    sessionStorage.YAMAHA = yamaha.Yamahabd;
 
                 });
             } else {
@@ -250,8 +277,8 @@
                     console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
                     bmw = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
-                    console.log(bmw.Realistabd);
-                    sessionStorage.REALISTA = realista.Realistabd;
+                    console.log(Bmw.Bmwbd);
+                    sessionStorage.BMW = bmw.Bmwbd;
 
                 });
             } else {
@@ -270,9 +297,9 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                    realista = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
-                    console.log(realista.Realistabd);
-                    sessionStorage.REALISTA = realista.Realistabd;
+                    Triumph = resposta[resposta.indexOf(':') + 1] //não sei pq mas isso funciona
+                    console.log(Triumph.Triumphbd);
+                    sessionStorage.TRIUMPH = triumph.Triumphbd;
 
                 });
             } else {
@@ -283,65 +310,6 @@
         })
         return false;
     }
-
-    var marca_vt = []
-        fetch("/analytics/analytics")
-        .then(function (res) {
-        console.log(res)
-        res.json().then(function (json) {
-            console.log(json);
-            var likes = []
-            for (let index = 0; index < json.length; index++) {
-                marca_vt.push(json[index].Votos);
-                
-                // votos.push(json[index].likes)
-            }
-
-            console.log(marca_vt);
-
-            // Inicia uma variável do tipo constante (não pode ser reatribuida)
-            const visitados = {
-                type: "bar", // tipo do gráfico
-                data: { // objeto que vai conter os dados do gráfico
-                    labels: ['Honda',
-      'Yamaha',
-      'Susuki',
-      'Bmw',
-      'Triumph'], // labels (rótulos) que serão identificados os nossos dados 
-                    datasets: [ // datasets (conjunto de dados)
-                        {
-                            label: "Times favoritos dos usuários!", // irá conter o rótulo principal do nosso gráfico
-                            data: marca_vt, // os dados referentes aqueles rótulos
-                            backgroundColor: ['rgb(255, 99, 132)','rgb(255, 255, 0)','rgb(0,0,139)','rgb(65,105,225)','rgb(0,0,0)'], // cor das "bolinhas" do gráfico
-                            borderColor: "black", // cor da "linha" do gráfico
-                            hoverBackgroundColor: "rgb(115, 59, 48)",
-                            fontWeight: "bold"
-                        }
-                    ]
-                },
-                options: {
-                    maintainAspectRatio: false
-                    /* maintainAspectRatio (manter relação de aspecto) 
-                      caso true: ele "obdece" a altura e largura que colocamos
-                      caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
-                    */
-                }
-            }
-
-            var mais_visitados = new Chart(document.getElementById ("marca_vt"),visitados);
-            /* aqui obrigatoriamente tem que colocar new Chart() para criar um novo chart 
-            e passar dentro dos (parênteses) o elemento canvas que você quer mandar e 
-            separado pela virgula o que você quer mandar, no nosso caso a config que fizemos 
-            */
-
-
-
-
-
-        })
-    }).catch(function (erro) {
-        console.log(erro);
-    })
 
 
 

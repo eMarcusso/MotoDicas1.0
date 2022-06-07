@@ -31,6 +31,16 @@ function cadastrar(nome, email, senha, confirmar_senha, combo) {
     return database.executar(instrucao);
 }
 
+function trazerPosi() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function trazerPosi()");
+    var instrucao = `
+     select count(combo) as usuario, combo as marca from cadastro group by combo; `
+    ;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 function funcHonda() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function funcHonda()");
     var instrucao = `
@@ -80,6 +90,7 @@ function funcTriumph() {
 module.exports = {
     entrar,
     cadastrar,
+    trazerPosi,
     listar,
     funcHonda,
     funcYamaha,

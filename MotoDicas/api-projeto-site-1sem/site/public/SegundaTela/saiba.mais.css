@@ -368,19 +368,26 @@ body{
 
 .dicas-tudo li{
 
-    font-size: 18px;
-    width: 96%;
+    font-size: 19px;
+    width: 62%;
     margin-left: 20px;
     margin-top: 15px;
     line-height: 33px;
 }
 
+.div_img{
+  
+    width: 28%;
+    height: 100%;
+    margin-left: 70%;
+    margin-top: -527px;
 
-/* .div_img img{
-    width: 25%;
-    height: 75;
-    margin-left: 73%;
-    margin-top: -45px;
+}
+
+.div_img img{
+    width: 100%;
+    height: 75%;
+    border-radius: 15px;
 
 
-} */
+}
